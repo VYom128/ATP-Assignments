@@ -1,3 +1,5 @@
+import React from 'react'
+
 function Product({ product }) {
   return (
     <div className="border rounded-lg p-4 shadow">

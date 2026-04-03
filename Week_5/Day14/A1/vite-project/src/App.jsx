@@ -1,4 +1,4 @@
-import Product from "./product.jsx"
+import Product from "./Components/Product"
 
 function App() {
 

@@ -11,50 +11,68 @@ import { uploadToCloudinary } from "../config/cloudinaryUpload.js";
 import cloudinary from "../config/cloudinary.js";
 config();
 
+// Cookie options helper
+const getCookieOptions = () => {
+  const isProduction = process.env.NODE_ENV === "production";
+  return {
+    httpOnly: true,
+    secure: isProduction,
+    sameSite: isProduction ? "none" : "lax",
+  };
+};
+
 //Route for register
-commonApp.post("/users", upload.single("profileImageUrl"), async (req, res) => {
-  let cloudinaryResult;
-  try {
-    let allowedRoles = ["USER", "AUTHOR"];
-    //get user from req
-    const newUser = req.body;
-    console.log(newUser);
-    console.log(req.file);
+commonApp.post(
+  "/users",
+  upload.single("profileImageUrl"),
+  async (req, res, next) => {
+    let cloudinaryResult;
+    try {
+      let allowedRoles = ["USER", "AUTHOR"];
+      //get user from req
+      const newUser = req.body;
+      console.log(newUser);
+      console.log(req.file);
 
-    //check role
-    if (!allowedRoles.includes(newUser.role)) {
-      return res.status(400).json({ message: "Invalid role" });
+      //check role
+      if (!allowedRoles.includes(newUser.role)) {
+        return res.status(400).json({ message: "Invalid role" });
+      }
+
+      //Upload image to cloudinary from memoryStorage
+      if (req.file) {
+        cloudinaryResult = await uploadToCloudinary(req.file.buffer);
+      }
+
+      // console.log("cloudinaryResult", cloudinaryResult);
+      //add CDN link(secure_url) of image to newUserObj
+      newUser.profileImageUrl = cloudinaryResult?.secure_url;
+
+      //run validators manually
+      //hash password and replace plain with hashed one
+      newUser.password = await hash(newUser.password, 12);
+
+      //create New user document
+      const newUserDoc = new UserModel(newUser);
+
+      //save document
+      await newUserDoc.save();
+      //send res
+      res.status(201).json({ message: "User created" });
+    } catch (err) {
+      console.log("err is ", err);
+      //delete image from cloudinary if it was uploaded
+      if (cloudinaryResult && cloudinaryResult.public_id) {
+        try {
+          await cloudinary.uploader.destroy(cloudinaryResult.public_id);
+        } catch (deleteErr) {
+          console.log("err deleting image from cloudinary", deleteErr);
+        }
+      }
+      next(err);
     }
-
-    //Upload image to cloudinary from memoryStorage
-    if (req.file) {
-      cloudinaryResult = await uploadToCloudinary(req.file.buffer);
-    }
-
-    // console.log("cloudinaryResult", cloudinaryResult);
-    //add CDN link(secure_url) of image to newUserObj
-    newUser.profileImageUrl = cloudinaryResult?.secure_url;
-
-    //run validators manually
-    //hash password and replace plain with hashed one
-    newUser.password = await hash(newUser.password, 12);
-
-    //create New user document
-    const newUserDoc = new UserModel(newUser);
-
-    //save document
-    await newUserDoc.save();
-    //send res
-    res.status(201).json({ message: "User created" });
-  } catch (err) {
-    console.log("err is ", err);
-    //delete image from cloudinary
-    if (cloudinaryResult.public_id) {
-      await cloudinary.uploader.destroy(cloudinaryResult.public_id);
-    }
-    next(err);
-  }
-});
+  },
+);
 
 //Route for Login(USER, AUTHOR and ADMIN)
 commonApp.post("/login", async (req, res) => {
@@ -92,11 +110,7 @@ commonApp.post("/login", async (req, res) => {
     },
   );
 
-  res.cookie("token", signedToken, {
-    httpOnly: true,
-    secure: false,
-    sameSite: "lax",
-  });
+  res.cookie("token", signedToken, getCookieOptions());
   let userObj = user.toObject();
   delete userObj.password;
 
@@ -106,11 +120,7 @@ commonApp.post("/login", async (req, res) => {
 //Route for Logout
 commonApp.get("/logout", (req, res) => {
   //delete token from cookie storage
-  res.clearCookie("token", {
-    httpOnly: true,
-    secure: false,
-    sameSite: "lax",
-  });
+  res.clearCookie("token", getCookieOptions());
   //send res
   res.status(200).json({ message: "Logout success" });
 });

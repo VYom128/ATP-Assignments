@@ -13,7 +13,7 @@ import {
 import { useForm } from "react-hook-form";
 import { NavLink, useNavigate } from "react-router";
 import { useState } from "react";
-import axiosInstance from "../api/axiosConfig"
+import axiosInstance from "../api/axiosConfig";
 
 function Register() {
   const {
@@ -58,7 +58,9 @@ function Register() {
       }
     } catch (err) {
       console.log("err in registration", err);
-      setApiError(err.response?.data?.error || "Registration failed");
+      setApiError(
+        err.response?.data?.message || err.message || "Registration failed",
+      );
     } finally {
       setLoading(false);
     }

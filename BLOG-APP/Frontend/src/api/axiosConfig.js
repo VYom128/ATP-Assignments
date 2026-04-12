@@ -6,4 +6,13 @@ const axiosInstance = axios.create({
   withCredentials: true,
 });
 
+// Add request interceptor to handle FormData properly
+axiosInstance.interceptors.request.use((config) => {
+  // Let browser set Content-Type for FormData
+  if (config.data instanceof FormData) {
+    delete config.headers["Content-Type"];
+  }
+  return config;
+});
+
 export default axiosInstance;

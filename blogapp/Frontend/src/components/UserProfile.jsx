@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 
 import axios from "axios";
 import { useEffect, useState } from "react";
+import axiosInstance from "../axiosConfig";
 
 import {
   articleGrid,

@@ -15,6 +15,7 @@ import {
   loadingClass,
 } from "../styles/common";
 import { useAuth } from "../store/authStore";
+import axiosInstance from "../axiosConfig";
 
 function WriteArticles() {
   const navigate = useNavigate();

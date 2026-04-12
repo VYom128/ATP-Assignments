@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  // If you set VITE_API_URL in Vercel, it uses that. Otherwise, it uses your Render link.
-  baseURL: import.meta.env.VITE_API_URL || "https://blogapp-ajamoepw6-vyomt128s-projects.vercel.app",
+  // Uses VITE_API_URL env var (set on Vercel Frontend), defaults to Render Backend
+  baseURL: import.meta.env.VITE_API_URL || "https://blogapp-jkx5.onrender.com",
   withCredentials: true,
 });
 

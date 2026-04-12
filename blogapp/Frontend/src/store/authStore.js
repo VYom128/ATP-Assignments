@@ -17,7 +17,7 @@ export const useAuth = create((set) => ({
         error: null,
       });
       //make api call
-      let res = await axios.post("http://localhost:5000/auth/login", userCred, {
+      let res = await axiosInstance.post("/auth/login", userCred, {
         withCredentials: true,
       });
       //update state
@@ -44,7 +44,7 @@ export const useAuth = create((set) => ({
     try {
       //set loading state
       //make logout api req
-      let res = await axios.get("http://localhost:5000/auth/logout", {
+      let res = await axiosInstance.get("/auth/logout", {
         withCredentials: true,
       });
       //update state
@@ -69,7 +69,7 @@ export const useAuth = create((set) => ({
   checkAuth: async () => {
     try {
       set({ loading: true });
-      const res = await axios.get("http://localhost:5000/auth/check-auth", {
+      const res = await axiosInstance.get("/auth/check-auth", {
         withCredentials: true,
       });
 

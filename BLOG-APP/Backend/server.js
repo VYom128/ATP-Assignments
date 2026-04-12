@@ -6,18 +6,23 @@ import { authorApp } from "./APIs/AuthorAPI.js";
 import { adminApp } from "./APIs/AdminAPI.js";
 import { commonApp } from "./APIs/CommonAPI.js";
 import cookieParser from "cookie-parser";
-import cors from 'cors'
+import cors from "cors";
 config();
 
 //create express app
 const app = exp();
 //enable cors
-app.use(cors({
-  origin: ['blog-application-seven-wine.vercel.app'], 
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: [
+      "https://blog-application-seven-wine.vercel.app", // Your live Vercel frontend
+      "http://localhost:5173", // Keep this so it still works on your laptop!
+    ],
+    credentials: true,
+  }),
+);
 //add cookie parser middeleware
-app.use(cookieParser())
+app.use(cookieParser());
 //body parser middleware
 app.use(exp.json());
 //path level middlewares
@@ -49,18 +54,23 @@ app.use((req, res, next) => {
 
 //Error handling middleware
 app.use((err, req, res, next) => {
-  console.log("error is ",err)
+  console.log("error is ", err);
   console.log("Full error:", JSON.stringify(err, null, 2));
   //ValidationError
   if (err.name === "ValidationError") {
-    return res.status(400).json({ message: "error occurred", error: err.message });
+    return res
+      .status(400)
+      .json({ message: "error occurred", error: err.message });
   }
   //CastError
   if (err.name === "CastError") {
-    return res.status(400).json({ message: "error occurred", error: err.message });
+    return res
+      .status(400)
+      .json({ message: "error occurred", error: err.message });
   }
   const errCode = err.code ?? err.cause?.code ?? err.errorResponse?.code;
-  const keyValue = err.keyValue ?? err.cause?.keyValue ?? err.errorResponse?.keyValue;
+  const keyValue =
+    err.keyValue ?? err.cause?.keyValue ?? err.errorResponse?.keyValue;
 
   if (errCode === 11000) {
     const field = Object.keys(keyValue)[0];
@@ -72,7 +82,9 @@ app.use((err, req, res, next) => {
   }
 
   //send server side error
-  res.status(500).json({ message: "error occurred", error: "Server side error" });
+  res
+    .status(500)
+    .json({ message: "error occurred", error: "Server side error" });
 });
 
 export default app;

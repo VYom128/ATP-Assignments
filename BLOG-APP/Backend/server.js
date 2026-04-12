@@ -13,7 +13,7 @@ config();
 const app = exp();
 //enable cors
 app.use(cors({
-  origin: ['https://blogapp-omega-one.vercel.app'], 
+  origin: ['blog-application-seven-wine.vercel.app'], 
   credentials: true
 }));
 //add cookie parser middeleware

@@ -27,6 +27,7 @@ import {
   commentText,
 } from "../styles/common.js";
 import { useForm } from "react-hook-form";
+import axiosInstance from "../axiosConfig";
 
 function ArticleByID() {
   const { id } = useParams();
@@ -50,8 +51,8 @@ function ArticleByID() {
       setLoading(true);
 
       try {
-        const res = await axios.get(
-          `http://localhost:5000/user-api/article/${id}`,
+        const res = await axiosInstance.get(
+          `/user-api/article/${id}`,
           { withCredentials: true },
         );
 
@@ -84,8 +85,8 @@ function ArticleByID() {
     if (!window.confirm(confirmMsg)) return;
 
     try {
-      const res = await axios.patch(
-        "http://localhost:5000/author-api/articles",
+      const res = await axiosInstance.patch(
+        "/author-api/articles",
         { articleId: article._id, isArticleActive: newStatus },
         { withCredentials: true },
       );
@@ -119,8 +120,8 @@ function ArticleByID() {
     //add artcileId
     commentObj.articleId = article._id;
     console.log(commentObj);
-    let res = await axios.put(
-      "http://localhost:5000/user-api/articles",
+    let res = await axiosInstance.put(
+      "/user-api/articles",
       commentObj,
       { withCredentials: true },
     );

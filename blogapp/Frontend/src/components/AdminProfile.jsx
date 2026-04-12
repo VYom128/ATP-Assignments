@@ -14,6 +14,7 @@ import {
   successClass,
   emptyStateClass,
 } from "../styles/common";
+import axiosInstance from "../axiosConfig";
 
 function AdminProfile() {
   const currentUser = useAuth((state) => state.currentUser);
@@ -25,7 +26,7 @@ function AdminProfile() {
   const fetchAccounts = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:5000/admin-api/users", {
+      const res = await axiosInstance.get("/admin-api/users", {
         withCredentials: true,
       });
       setManagedAccounts(res.data.payload.users || []);
@@ -46,8 +47,8 @@ function AdminProfile() {
   const toggleStatus = async (account) => {
     try {
       const updatedStatus = !account.isUserActive;
-      await axios.patch(
-        `http://localhost:5000/admin-api/users/${account._id}/status`,
+      await axiosInstance.patch(
+        `/admin-api/users/${account._id}/status`,
         { isUserActive: updatedStatus },
         { withCredentials: true },
       );

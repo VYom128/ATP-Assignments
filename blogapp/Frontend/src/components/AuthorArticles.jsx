@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { useAuth } from "../store/authStore";
+import axiosInstance from "../axiosConfig";
 
 import {
   articleCardClass,
@@ -33,7 +34,7 @@ function AuthorArticles() {
       try {
         setLoading(true);
         //read articles of current author
-        let res = await axios.get("http://localhost:5000/author-api/articles", {
+        let res = await axiosInstance.get("/author-api/articles", {
           withCredentials: true,
         });
         if (res.status === 200) {

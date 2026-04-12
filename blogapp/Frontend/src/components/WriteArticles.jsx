@@ -38,8 +38,8 @@ function WriteArticles() {
       //set loading true
       setLoading(true);
       //make POST req to save new article
-      let res = await axios.post(
-        "http://localhost:5000/author-api/article",
+      let res = await axiosInstance.post(
+        "/author-api/article",
         articleObj,
         { withCredentials: true },
       );

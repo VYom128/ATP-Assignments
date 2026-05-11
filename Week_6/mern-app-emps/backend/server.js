@@ -27,7 +27,9 @@ const connectDB = async () => {
     let port = process.env.PORT || 4000;
     app.listen(port, () => console.log(`server listening on port ${port}..`));
   } catch (err) {
-    console.log("err in DB connection", err.message);
+    console.error("CRITICAL ERROR: Database connection failed!");
+    console.error("Reason:", err.message);
+    process.exit(1); // Force the app to crash with an error code so Render logs it!
   }
 };
 

@@ -27,9 +27,6 @@ const connectDB = async () => {
   try {
     await connect(process.env.DB_URL);
     console.log("connected to database");
-
-    const port = process.env.PORT || 5000;
-    app.listen(port, () => console.log(`server started on port ${port}`))
   }
   catch (err) {
     console.log("error in db connection", err);
@@ -101,3 +98,6 @@ app.use((err, req, res, next) => {
     error: "Server side error"
   });
 });
+
+const port = process.env.PORT || 5000;
+app.listen(port, '0.0.0.0', () => console.log(`server started on port ${port}`));

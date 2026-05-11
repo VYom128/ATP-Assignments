@@ -10,7 +10,7 @@ const app = exp();
 console.log("Applying CORS middleware with wildcard origin");
 app.use(
   cors({
-    origin: "empapp-khaki.vercel.app",
+    origin: "https://empapp-khaki.vercel.app",
   }),
 );
 

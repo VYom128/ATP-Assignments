@@ -35,7 +35,7 @@ function WriteArticles() {
 
     try {
       let res = await axios.post(
-        "https://atp-24eg112c38-2.onrender.com/author-api/article",
+        `${import.meta.env.VITE_API_URL}/author-api/article`,
         articleObj,
         { withCredentials: true }
       );

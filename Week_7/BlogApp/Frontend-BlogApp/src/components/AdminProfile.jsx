@@ -21,7 +21,7 @@ function AdminProfile() {
   const handleToggleStatus = async (userId, currentStatus) => {
     try {
       await axios.patch(
-        "https://atp-24eg112c38-2.onrender.com/admin-api/users",
+        `${import.meta.env.VITE_API_URL}/admin-api/users`,
         {
           userId: userId,
           isUserActive: !currentStatus,
@@ -44,7 +44,7 @@ function AdminProfile() {
       setLoading(true);
       try {
         let res = await axios.get(
-          "https://atp-24eg112c38-2.onrender.com/admin-api/users",
+          `${import.meta.env.VITE_API_URL}/admin-api/users`,
           { withCredentials: true }
         );
 

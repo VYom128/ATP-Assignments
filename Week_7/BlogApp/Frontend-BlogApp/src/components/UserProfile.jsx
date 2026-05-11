@@ -27,7 +27,7 @@ function UserProfile() {
       setLoading(true);
       try {
         let res = await axios.get(
-          "https://atp-24eg112c38-2.onrender.com/user-api/articles",
+          `${import.meta.env.VITE_API_URL}/user-api/articles`,
           { withCredentials: true }
         );
 

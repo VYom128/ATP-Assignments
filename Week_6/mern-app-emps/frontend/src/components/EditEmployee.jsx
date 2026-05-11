@@ -31,7 +31,7 @@ function EditEmployee() {
     // console.log(modifiedUser);
     try{
     setLoading(true);  
-    const res = await axios.put(`http://localhost:4000/emp-api/employees/${state._id}`, modifiedUser)
+    const res = await axios.put(`${import.meta.env.VITE_API_URL}/emp-api/employees/${state._id}`, modifiedUser)
     if(res.status === 200){
       navigate("/list");
     }else{

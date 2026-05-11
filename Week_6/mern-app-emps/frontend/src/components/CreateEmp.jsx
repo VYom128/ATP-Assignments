@@ -19,7 +19,7 @@ function CreateEmp() {
     try {
       setLoading(true);
       //make HTTP POST req
-      let res = await axios.post("http://localhost:4000/emp-api/employees", newEmpObj);
+      let res = await axios.post(`${import.meta.env.VITE_API_URL}/emp-api/employees`, newEmpObj);
 
       if (res.status === 201) {
         //navigate to employees component programatically

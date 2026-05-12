@@ -1,14 +1,20 @@
-This repository contains the assignments, practice programs, and backend exercises completed during Week 2 of the ATP Training Program.
+# 🚀 ATP - Week 2
+
+This repository contains the assignments, practice programs, and backend exercises completed during **Week 2** of the ATP Training Program.
 
 The focus of this week was on strengthening:
+- JavaScript problem-solving skills
+- Arrays & Objects manipulation
+- ES6+ concepts
+- Real-world JavaScript mini applications
+- Backend fundamentals using Node.js
+- API request handling and testing
 
-JavaScript problem-solving skills
-Arrays & Objects manipulation
-ES6+ concepts
-Real-world JavaScript mini applications
-Backend fundamentals using Node.js
-API request handling and testing
-📂 Repository Structure
+---
+
+## 📂 Repository Structure
+
+```text
 ATP-Week2/
 │
 ├── Day1/
@@ -38,133 +44,148 @@ ATP-Week2/
 │   └── server.js
 │
 └── README.md
-📅 Day 1 – JavaScript Real-World Problem Solving
-📚 Topics Covered
-JavaScript Fundamentals Revision
-Arrays & Objects
-Conditional Logic
-Loops & Iteration
-Functions & Modular Programming
-Real-World Application Logic
-Data Processing
-Business Logic Simulation
-Array Operations
-Object Manipulation
-📝 Assignments – Day 1
-1. shoppingCartQ1.js
+```
 
-Implements shopping cart functionalities such as:
+---
 
-Adding products
-Managing cart items
-Calculating totals
-Simulating cart operations
-2. studentDashboardQ2.js
+# 📅 Day 1 – JavaScript Real-World Problem Solving
 
-Processes and analyzes student-related data:
+## 📚 Topics Covered
 
-Student performance evaluation
-Marks analysis
-Dashboard-style data processing
-3. employeePayrollQ3.js
+1. JavaScript Fundamentals Revision
+2. Arrays & Objects
+3. Conditional Logic
+4. Loops & Iteration
+5. Functions & Modular Programming
+6. Real-World Application Logic
+7. Data Processing
+8. Business Logic Simulation
+9. Array Operations
+10. Object Manipulation
 
-Simulates payroll management:
+---
 
-Employee salary calculations
-Payroll processing logic
-Data handling using objects and arrays
-4. movieRecomendationQ4.js
+## 📝 Assignments – Day 1
 
-Implements movie platform functionalities:
+1. **shoppingCartQ1.js**  
+   Implements shopping cart functionalities such as:
+   - Adding products
+   - Managing cart items
+   - Calculating totals
+   - Simulating cart operations
 
-Movie management
-Recommendation logic
-User preference simulation
-5. bankTransactionAnalyzerQ5.js
+2. **studentDashboardQ2.js**  
+   Processes and analyzes student-related data:
+   - Student performance evaluation
+   - Marks analysis
+   - Dashboard-style data processing
 
-Analyzes banking transactions:
+3. **employeePayrollQ3.js**  
+   Simulates payroll management:
+   - Employee salary calculations
+   - Payroll processing logic
+   - Data handling using objects and arrays
 
-Deposits and withdrawals
-Transaction calculations
-Balance analysis
-📅 Day 2 – ES6+ Concepts & Advanced JavaScript
-📚 Topics Covered
-ES6+ Features
-Rest Parameters
-Spread Operator
-Object & Array Copying
-Object & Array Manipulation
-Dynamic Updates
-Shallow Copy
-Deep Copy
-Mini Simulators
-Exam Portal Simulation
-OTP Countdown Timer
-📝 Assignments – Day 2
-1. BookManagementSystemQ1.js
+4. **movieRecomendationQ4.js**  
+   Implements movie platform functionalities:
+   - Movie management
+   - Recommendation logic
+   - User preference simulation
 
-Simulates a library management system:
+5. **bankTransactionAnalyzerQ5.js**  
+   Analyzes banking transactions:
+   - Deposits and withdrawals
+   - Transaction calculations
+   - Balance analysis
 
-Book storage
-Borrowing operations
-Book tracking functionality
-2. copyExtendArrayQ2.js
+---
 
-Demonstrates:
+# 📅 Day 2 – ES6+ Concepts & Advanced JavaScript
 
-Copying arrays
-Extending arrays using ES6 methods
-3. updateUserObjectQ3.js
+## 📚 Topics Covered
 
-Shows:
+1. ES6+ Features
+2. Rest Parameters
+3. Spread Operator
+4. Object & Array Copying
+5. Object & Array Manipulation
+6. Dynamic Updates
+7. Shallow Copy
+8. Deep Copy
+9. Mini Simulators
+10. Exam Portal Simulation
+11. OTP Countdown Timer
 
-Dynamic object updates
-User data modification techniques
-4. restParameterQ4.js
+---
 
-Demonstrates:
+## 📝 Assignments – Day 2
 
-Usage of rest parameters
-Flexible function argument handling
-5. shallowCopyQ5.js
+1. **BookManagementSystemQ1.js**  
+   Simulates a library management system:
+   - Book storage
+   - Borrowing operations
+   - Book tracking functionality
 
-Explains shallow copy behavior:
+2. **copyExtendArrayQ2.js**  
+   Demonstrates:
+   - Copying arrays
+   - Extending arrays using ES6 methods
 
-Object references
-Array references
-Shared memory concepts
-6. deepCopyQ6.js
+3. **updateUserObjectQ3.js**  
+   Shows:
+   - Dynamic object updates
+   - User data modification techniques
 
-Implements deep copy techniques:
+4. **restParameterQ4.js**  
+   Demonstrates:
+   - Usage of rest parameters
+   - Flexible function argument handling
 
-Independent object cloning
-Avoiding shared references
-7. examPortalSimulatorQ7.js
+5. **shallowCopyQ5.js**  
+   Explains shallow copy behavior:
+   - Object references
+   - Array references
+   - Shared memory concepts
 
-Simulates examination portal features:
+6. **deepCopyQ6.js**  
+   Implements deep copy techniques:
+   - Independent object cloning
+   - Avoiding shared references
 
-Student exam handling
-Result processing
-Portal operations
-8. otpCountdownSimulatorQ8.js
+7. **examPortalSimulatorQ7.js**  
+   Simulates examination portal features:
+   - Student exam handling
+   - Result processing
+   - Portal operations
 
-Implements OTP timer functionality:
+8. **otpCountdownSimulatorQ8.js**  
+   Implements OTP timer functionality:
+   - Countdown logic
+   - OTP expiration simulation
+   - Timer handling
 
-Countdown logic
-OTP expiration simulation
-Timer handling
-📅 Day 3 – Backend Fundamentals with Node.js
-📚 Topics Covered
-Node.js Basics
-Backend Environment Setup
-Creating a Server
-Handling HTTP Requests
-API Development Basics
-Route Handling
-Request & Response Processing
-API Testing using .http files
-📝 Backend Practice – Day3_Backend
-📂 Folder Structure
+---
+
+# 📅 Day 3 – Backend Fundamentals with Node.js
+
+## 📚 Topics Covered
+
+1. Node.js Basics
+2. Backend Environment Setup
+3. Creating a Server
+4. Handling HTTP Requests
+5. API Development Basics
+6. Route Handling
+7. Request & Response Processing
+8. API Testing using .http files
+
+---
+
+## 📝 Backend Practice – Day3_Backend
+
+### 📂 Folder Structure
+
+```text
 Day3_Backend/
 ├── APIs/
 ├── node_modules/
@@ -173,44 +194,44 @@ Day3_Backend/
 ├── productReq.http
 ├── server.js
 └── userReq.http
-📄 File Descriptions
-APIs/
+```
 
-Directory intended for organizing:
+### 📄 File Descriptions
 
-API routes
-Backend operations
-Modular server logic
-server.js
+- **APIs/**  
+  Directory intended for organizing:
+  - API routes
+  - Backend operations
+  - Modular server logic
 
-Main backend server entry point:
+- **server.js**  
+  Main backend server entry point:
+  - Server configuration
+  - Route setup
+  - Request handling
 
-Server configuration
-Route setup
-Request handling
-productReq.http & userReq.http
+- **productReq.http & userReq.http**  
+  Used for testing API endpoints directly within the IDE:
+  - Product-related requests
+  - User-related requests
 
-Used for testing API endpoints directly within the IDE:
+- **package.json & package-lock.json**  
+  Project configuration files responsible for:
+  - Dependency management
+  - Scripts
+  - Project metadata
 
-Product-related requests
-User-related requests
-package.json & package-lock.json
+---
 
-Project configuration files responsible for:
-
-Dependency management
-Scripts
-Project metadata
-💡 Key Learnings
+## 💡 Key Learnings
 
 During Week 2, I improved my understanding of:
-
-JavaScript arrays and objects
-ES6+ features
-Modular programming
-Real-world problem-solving
-Deep copy vs shallow copy
-Timer and simulator implementations
-Backend fundamentals using Node.js
-API routing and HTTP request handling
-Testing APIs using .http files
+- JavaScript arrays and objects
+- ES6+ features
+- Modular programming
+- Real-world problem-solving
+- Deep copy vs shallow copy
+- Timer and simulator implementations
+- Backend fundamentals using Node.js
+- API routing and HTTP request handling
+- Testing APIs using .http files
